@@ -1,0 +1,22 @@
+{
+  "name": "formula-voto",
+  "version": "1.0.0",
+  "description": "Sistema para a plataforma Fórmula do Voto. A plataforma visa prover serviço de gerenciamento de redes sociais para candidatos políticos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "file:///D:/Seventech/Projetos/formula-voto/"
+  },
+  "author": "Seventech Soluções",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "jquery-mask-plugin": "^1.14.15",
+    "jquery-validation": "^1.19.1",
+    "popper.js": "^1.15.0"
+  }
+}

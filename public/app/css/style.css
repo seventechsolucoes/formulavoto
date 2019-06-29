@@ -1,0 +1,27 @@
+/*BASE STYLES*/
+body{
+    font-family: 'Nunito Sans', sans-serif;
+}
+#header{
+    background-color: #f6921e;
+    padding: 20px;
+}
+
+/*SITE*/
+.bg-cinza{
+    background-color: #cccccc;
+}
+#titulo-videos-relacionados{
+    background-color: #2e3192;
+    color:white;
+}
+#titulo-video-destaque{
+    color: #f6921e;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1px;
+}
+#titulo-filiados{
+    font-size: 1.5em;
+    color: #f6921e;
+}
