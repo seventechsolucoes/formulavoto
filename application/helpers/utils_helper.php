@@ -1,5 +1,17 @@
 <?php
 
+function getFotoPerfil($foto) {
+    if (!empty($foto)) {
+        if (file_exists("./public/app/img/perfis/{$foto}")) {
+            return base_url("public/app/img/perfis/{$foto}");
+        } else {
+            return base_url("public/app/img/sistema/sem-foto.png");
+        }
+    } else {
+        return base_url("public/app/img/sistema/sem-foto.png");
+    }
+}
+
 function getNomePerfil($nome) {
     $nomeSplited = explode(" ", $nome);
 

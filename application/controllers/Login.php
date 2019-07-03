@@ -34,7 +34,7 @@ class Login extends CI_Controller {
 
                 if ($response["resultado"]) {
                     $this->session->set_userdata([
-                        "fv_cliente_usuario" => $response["dados"]->id,
+                        "fv_cliente_usuario" => base64_encode($response["dados"]->id),
                         "fv_cliente_nome" => $response["dados"]->nome,
                         "fv_cliente_foto" => $response["dados"]->foto,
                         "fv_cliente_cidade" => $response["dados"]->cidade,

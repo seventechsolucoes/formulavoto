@@ -20,7 +20,7 @@ switch ($_SERVER["SERVER_ADDR"]) {
         $config["root"] = $config["httpHost"] . "/formula-voto";
         $config["rootAdmin"] = $config["httpHost"] . "/formula-voto/admin";
         break;
-    case "108.179.192.134":
+    case "162.241.203.76":
         $config["ci_env"] = "testing";
         $config["root"] = $config["httpHost"];
         $config["rootAdmin"] = $config["httpHost"] . "/admin";

@@ -21,6 +21,8 @@
         <script src="<?= ROOT . "/node_modules/jquery-validation/dist/jquery.validate.min.js" ?>"></script>
         <script src="<?= ROOT . "/node_modules/jquery-validation/dist/additional-methods.min.js" ?>"></script>
         <script src="<?= ROOT . "/node_modules/sweetalert2/dist/sweetalert2.min.js" ?>"></script>
+        <script src="<?= ROOT . "/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js" ?>"></script>
+        <script src="<?= base_url("public/app/js/support/utils.js") ?>"></script>
 
         <?php if (!empty($scripts)): ?>
             <?php foreach ($scripts as $script) : ?>

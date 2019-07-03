@@ -33,7 +33,7 @@ $("#formLogin").validate({
                 .html(`<i class="fas fa-circle-notch fa-spin"></i>`)
                 .attr("disabled", "disabled");
 
-        fetch($("head").data("info") + "auth/login/autenticar", {
+        fetch($("head").data("info") + "login/autenticar", {
             method: "post",
             body: dados
         }).then((response) => {

@@ -6,8 +6,4 @@ $route['default_controller'] = 'site';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//LOGIN
-$route["login/sair"] = "auth/login/sair";
-
-//DASHBOARD
-$route["dashboard"] = "dashboard/home";
+$route["upload"] = "ups";

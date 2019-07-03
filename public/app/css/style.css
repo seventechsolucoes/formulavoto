@@ -46,6 +46,10 @@ body{
 #box-perfil-informacoes-nome{
     font-size: 1.2em;
 }
+.icone-dashboard{
+    max-height: 100px;
+    max-width: 100px;
+}
 #countdown{
     background-color: #666666;
     padding-top:20px;
