@@ -1,23 +1,20 @@
-application/cache/*
-!application/cache/index.html
-
-admin/application/cache/*
-!admin/application/cache/index.html
+*/admin/logs/log-*.php
+*/logs/log-*.php
+!*/admin/logs/index.html
+!*/logs/index.html
+*/admin/cache/*
+*/cache/*
+!*/admin/cache/index.html
+!*/cache/index.html
+!*/cache/.htaccess
+!*/admin/cache/.htaccess
 
 application/logs/*
-!application/logs/index.html
-
 admin/application/logs/*
+!application/logs/index.html
 !admin/application/logs/index.html
-
-!application/*/.htaccess
-!admin/application/*/.htaccess
-
-composer.lock
+!application/logs/.htaccess
+!admin/application/logs/.htaccess
 
 /vendor/
 /node_modules/
-
-# IDE Files
-#-------------------------
-/nbproject/

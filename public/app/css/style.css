@@ -1,6 +1,13 @@
 /*BASE STYLES*/
 body{
     font-family: 'Nunito Sans', sans-serif;
+    background-color: #f7f7f7;
+}
+.cor-laranja{
+    color:#f6931e;
+}
+.cor-cinza{
+    color:#969696;
 }
 #header{
     background-color: #f6921e;
@@ -24,4 +31,45 @@ body{
 #titulo-filiados{
     font-size: 1.5em;
     color: #f6921e;
+}
+
+/*DASHBOARD*/
+#box-perfil{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #29aae1;
+}
+#box-perfil-informacoes-nome,
+#box-perfil-informacoes-local{
+    color:white;
+}
+#box-perfil-informacoes-nome{
+    font-size: 1.2em;
+}
+#countdown{
+    background-color: #666666;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+#countdown-eleicao{
+    font-size: 1.2em;
+    font-weight: bold;
+    color:yellow;
+}
+#countdown-header{
+    font-weight:bold;
+    text-transform: uppercase;
+}
+#countdown-text{
+    font-weight:bold;
+    text-transform: uppercase;
+}
+#card-calendario-eleitoral{
+    background-color: #c2272d;
+    border:none;
+}
+#card-calendario-eleitoral div.card-title{
+    text-transform: uppercase;
+    color:#fa8e28;
+    font-weight: bold;
 }
