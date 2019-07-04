@@ -14,6 +14,26 @@ body{
     padding: 20px;
 }
 
+/*RESPONSIVIDADE*/
+/*CELULARES*/
+@media (max-width: 599px) {
+    .noticia-home{
+        font-size: 18px;
+    }
+}
+/*TABLETS*/
+@media (min-width: 600px){
+    .noticia-home{
+        font-size: 14px;
+    }
+}
+/*DESKTOPS*/
+@media (min-width: 900px) {
+    .noticia-home{
+        font-size: 10px;
+    }
+}
+
 /*SITE*/
 .bg-cinza{
     background-color: #cccccc;

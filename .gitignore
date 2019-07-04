@@ -21,5 +21,6 @@ admin/application/logs/*
 !public/app/img/arquivos
 !public/app/img/arquivos/*
 
-/vendor/
-/node_modules/
+nbproject
+vendor
+node_modules

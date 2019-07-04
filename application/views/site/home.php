@@ -99,23 +99,35 @@
                             </span>
                         </div>
                     </div>
-                    <div class="row mt-4 mb-2">
+                    <div class="row mt-4 mb-4">
                         <div class="col-12 text-center">
                             <span id="titulo-filiados">Filiados da Fórmula do Voto tem direito:</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 col-sm-4 text-center">
-                            <img src="http://placehold.it/620x350" class="img-fluid mx-auto">
-                            <span>Fórum entre participantes para troca de ideias e estratégios</span>
+                            <div class="mb-4">
+                                <img src="<?= base_url("public/app/img/sistema/icone-conversas.png") ?>" class="img-fluid mx-auto rounded-circle icone-dashboard">
+                            </div>
+                            <div>
+                                <span>Fórum entre participantes para troca de ideias e estratégios</span>
+                            </div>
                         </div>
                         <div class="col-12 col-md-4 col-sm-4 text-center">
-                            <img src="http://placehold.it/620x350" class="img-fluid mx-auto">
-                            <span>Uploads de vídeos e fotos direto na plataforma</span>
+                            <div class="mb-4">
+                                <img src="<?= base_url("public/app/img/sistema/icone-upload.png") ?>" class="img-fluid mx-auto rounded-circle icone-dashboard">
+                            </div>
+                            <div>
+                                <span>Uploads de vídeos e fotos direto na plataforma</span>
+                            </div>
                         </div>
                         <div class="col-12 col-md-4 col-sm-4 text-center">
-                            <img src="http://placehold.it/620x350" class="img-fluid mx-auto">
-                            <span>Relatórios individuais sobre o crescimento de suas redes sociais</span>
+                            <div class="mb-4">
+                                <img src="<?= base_url("public/app/img/sistema/icone-grafico.png") ?>" class="img-fluid mx-auto rounded-circle icone-dashboard">
+                            </div>
+                            <div>
+                                <span>Relatórios individuais sobre o crescimento de suas redes sociais</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -134,9 +146,42 @@
                             </span>
                         </div>
                     </div>
-                    <div class="row bg-cinza justify-content-center p-2">
+                    <div class="row bg-cinza justify-content-center p-2 mb-2">
                         <div class="col-10">
                             <a href="#" class="btn btn-primary btn-block">Download</a>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-12">
+                            <span>Veja também</span>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-12">
+                            <div class="row mb-2">
+                                <div class="col-4 p-0">
+                                    <img src="http://placehold.it/100x100" class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="col-8 pt-0 pb-0 pr-2 pl-2">
+                                    <p class="text-justify noticia-home">Some quick example text to build on the card.</p>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-4 p-0">
+                                    <img src="http://placehold.it/100x100" class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="col-8 pt-0 pb-0 pr-2 pl-2">
+                                    <p class="text-justify noticia-home">Some quick example text to build on the card.</p>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-4 p-0">
+                                    <img src="http://placehold.it/100x100" class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="col-8 pt-0 pb-0 pr-2 pl-2">
+                                    <p class="text-justify noticia-home">Some quick example text to build on the card.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
