@@ -450,10 +450,10 @@ $config['global_xss_filtering'] = FALSE;
   | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
  */
 $config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = sha1("csrf-cliente-formula-voto");
-$config['csrf_cookie_name'] = sha1("csrf-cookie-cliente-formula-voto");
+$config['csrf_token_name'] = sha1("csrf-token-cliente-formula-voto");
+$config['csrf_cookie_name'] = sha1("csrf-name-cliente-formula-voto");
 $config['csrf_expire'] = 600;
-$config['csrf_regenerate'] = FALSE;
+$config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = [];
 
 /*

@@ -43,7 +43,7 @@ $this->load->view("static/template/head", [
                                     <div class="card-text"><p class="text-center cor-cinza">Assistir conteúdos exclusivos produzidos pela Fórmula do Voto</p></div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="#" class="btn btn-primary btn-sm btn-block">Acessar</a>
+                                    <a href="<?= base_url("conteudo-exclusivo") ?>" class="btn btn-primary btn-sm btn-block">Acessar</a>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ $this->load->view("static/template/head", [
                                     <div class="card-text"><p class="text-center cor-cinza">Relatórios individuais sobre o crescimento de suas redes sociais</p></div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="#" class="btn btn-primary btn-sm btn-block">Acessar</a>
+                                    <a href="<?= base_url("relatorios") ?>" class="btn btn-primary btn-sm btn-block">Acessar</a>
                                 </div>
                             </div>
                         </div>
