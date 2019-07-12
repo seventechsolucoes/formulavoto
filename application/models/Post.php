@@ -49,6 +49,39 @@ class Post extends CI_Model {
         $this->uploader->preencherDados($dados);
     }
 
+    public function getById($id) {
+        $response = $this->db
+                        ->select("clientes_informacoes_posts.*,"
+                                . "clientes_arquivos.status as statusImagem,"
+                                . "clientes_arquivos.arquivo")
+                        ->join("clientes_informacoes_posts_arquivos", "clientes_informacoes_posts_arquivos.idInformacaoPost=clientes_informacoes_posts.id")
+                        ->join("clientes_arquivos", "clientes_arquivos.id=clientes_informacoes_posts_arquivos.idArquivo")
+                        ->where("clientes_informacoes_posts.id", $id)
+                        ->get("clientes_informacoes_posts")->row();
+
+        if (!empty($response)) {
+            return ["resultado" => TRUE, "post" => $response];
+        } else {
+            return ["resultado" => FALSE, "msg" => "Nenhum post encontrado"];
+        }
+    }
+
+    public function getByIdCliente($id) {
+        $response = $this->db
+                        ->select("clientes_informacoes_posts.*, clientes_arquivos.status as statusImagem")
+                        ->join("clientes_informacoes_posts_arquivos", "clientes_informacoes_posts_arquivos.idInformacaoPost=clientes_informacoes_posts.id")
+                        ->join("clientes_arquivos", "clientes_arquivos.id=clientes_informacoes_posts_arquivos.idArquivo")
+                        ->order_by("clientes_informacoes_posts.data", "DESC")
+                        ->where("clientes_informacoes_posts.idCliente", $id)
+                        ->get("clientes_informacoes_posts")->result();
+
+        if (!empty($response)) {
+            return ["resultado" => TRUE, "posts" => $response];
+        } else {
+            return ["resultado" => FALSE, "msg" => "Nenhum post encontrado"];
+        }
+    }
+
     public function adicionar() {
         $this->db->trans_start();
         $this->db->insert("clientes_informacoes_posts", $this->toArray());

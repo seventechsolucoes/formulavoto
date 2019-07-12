@@ -75,16 +75,22 @@
                             <span>VÍDEOS RELACIONADOS</span>
                         </div>
                     </div>
-                    <div class="row mb-2">
+                    <div class="row d-flex justify-content-center   mb-2">
                         <div class="col-12 col-md-4">
-                            <img src="http://placehold.it/220x150" class="img-fluid mx-auto">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="<?= base_url("public/app/videos/site/formula-voto-video-01.mp4") ?>" allowfullscreen></iframe>
+                            </div>
                         </div>
                         <div class="col-12 col-md-4">
-                            <img src="http://placehold.it/220x150" class="img-fluid mx-auto">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="<?= base_url("public/app/videos/site/formula-voto-video-02.mp4") ?>" allowfullscreen></iframe>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-4">
-                            <img src="http://placehold.it/220x150" class="img-fluid mx-auto">
-                        </div>
+<!--                        <div class="col-12 col-md-4">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="<?= base_url("public/app/videos/site/formula-voto-video-01.mp4") ?>" allowfullscreen></iframe>
+                            </div>
+                        </div>-->
                     </div>
                     <div class="row mt-4 align-items-center bg-cinza">
                         <div class="col-12 col-md-8">

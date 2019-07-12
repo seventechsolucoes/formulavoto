@@ -3,22 +3,8 @@ $this->load->view("static/template/head", [
     "title" => "Upload | Fórmula do voto",
     "scripts" => [ROOT . "/node_modules/jquery-countdown/dist/jquery.countdown.min.js"]
 ]);
-$this->output->enable_profiler(TRUE);
 ?>
-<header id="header">
-    <section id="section-header">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-6 col-md-4">
-                    <img src="<?= base_url("/public/app/img/sistema/logo-formula-voto-horizontal.png") ?>" class="img-fluid mx-auto d-block" alt="Logo Fórmula do Voto">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="<?= base_url("/public/app/img/sistema/logo-ave.png") ?>" class="img-fluid mx-auto d-block" alt="Logo AVE">
-                </div>
-            </div>
-        </div>
-    </section>
-</header>
+<?php $this->load->view("static/template/header-autenticado"); ?>
 <main class="pt-4 mb-2 bg-main">
     <section id="section-main">
         <div class="container">
@@ -91,9 +77,19 @@ $this->output->enable_profiler(TRUE);
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-row justify-content-end">
-                                            <div class="col-12 col-md-4 col-sm-5">
+                                        <div class="form-row justify-content-between mb-4">
+                                            <div class="col-12 col-md-4 col-sm-5 mb-3">
+                                                <a href="<?=base_url("uploads")?>" class="btn btn-secondary btn-block">Voltar</a>
+                                            </div>
+                                            <div class="col-12 col-md-4 col-sm-5 mb-3">
                                                 <button type="submit" class="btn btn-success btn-block" id="formUploadBtnEnviar">Enviar</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-12">
+                                                <div id="progress-upload" class="progress invisible" style="height: 30px">
+                                                    <div id="progress-upload-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -102,47 +98,12 @@ $this->output->enable_profiler(TRUE);
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-2 mt-2">
-                    <div class="row mb-2">
-                        <div class="col-12" id="countdown">
-                            <div class="row">
-                                <div class="col-12 text-center" id="countdown-header">
-                                    <span class="text-white">Faltam</span>
-                                </div>
-                            </div>
-                            <div class="row text-center pt-2 pb-2">
-                                <div class="col-12" id="countdown-eleicao"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 text-center" id="countdown-text">
-                                    <span class="text-white">
-                                        Para as<br>
-                                        eleições 2020
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <div class="card rounded-0" id="card-calendario-eleitoral">
-                                <div class="card-body">
-                                    <div class="card-title">Calendário<br>eleitoral</div>
-                                    <div class="card-text">
-                                        <p class="text-justify text-white">
-                                            O prazo final ara filiações partidárias termina em 30 de julho de 2019.
-                                            Até essa data todos os pré-candidatos devem estar filiados a um partido político.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php $this->load->view("static/template/content-right"); ?>
             </div>
         </div>
     </section>
 </main>
+<script src="<?= base_url("node_modules/moment/moment.js") ?>"></script>
 <script src="<?= base_url("public/app/js/countdown/controller.js") ?>"></script>
 <script src="<?= base_url("public/app/js/arquivos/upload.controller.js") ?>"></script>
 <?php $this->load->view("static/template/end-page") ?>

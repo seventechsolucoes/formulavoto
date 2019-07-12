@@ -13,7 +13,10 @@ body{
     background-color: #f6921e;
     padding: 20px;
 }
-
+.tabela-vazia{
+    font-size: 1.2em;
+    text-align: center;
+}
 /*RESPONSIVIDADE*/
 /*CELULARES*/
 @media (max-width: 599px) {

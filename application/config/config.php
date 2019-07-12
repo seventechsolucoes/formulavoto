@@ -454,7 +454,9 @@ $config['csrf_token_name'] = sha1("csrf-token-cliente-formula-voto");
 $config['csrf_cookie_name'] = sha1("csrf-name-cliente-formula-voto");
 $config['csrf_expire'] = 600;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = [];
+$config['csrf_exclude_uris'] = [
+    "ups/getPost"
+];
 
 /*
   |--------------------------------------------------------------------------

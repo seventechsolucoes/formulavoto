@@ -6,5 +6,6 @@ $route['default_controller'] = 'site';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route["upload"] = "ups";
+$route["uploads"] = "ups";
+$route["uploads/upload"] = "ups/up";
 $route["conteudo-exclusivo"] = "conteudoExclusivo";

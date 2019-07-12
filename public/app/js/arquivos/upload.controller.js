@@ -1,5 +1,6 @@
 $().ready(() => {
     $("#data").mask("00/00/0000");
+    console.log();
 });
 
 $("#arquivo").change(function () {
@@ -20,6 +21,11 @@ $("#arquivo").change(function () {
     }
 });
 
+$.validator.addMethod("dataValida", function (value, element) {
+
+    return moment().format("DD/MM/YYYY") == value || moment(moment(value.split("/").reverse().join("-")), "YYYY-MM-DD").isBefore(moment().format("YYYY-MM-DD"));
+}, "Data futura não permitida");
+
 $("#formUpload").validate({
     rules: {
         tipo: {required: true},
@@ -27,7 +33,8 @@ $("#formUpload").validate({
         local: {required: true},
         data: {
             required: true,
-            minlength: 10
+            minlength: 10,
+            dataValida: true
         },
         assunto: {required: true},
         arquivo: {
@@ -61,37 +68,48 @@ $("#formUpload").validate({
         let dados = new FormData($("#formUpload")[0]);
         dados.append("ajax", true);
 
-        $("#formUploadBtnEnviar")
-                .html(`<i class="fas fa-circle-notch fa-spin"></i>`)
-                .attr("disabled", "disabled");
+        axios.interceptors.request.use((config) => {
+            $("#formUploadBtnEnviar").attr("disabled", "disabled");
+            $("#progress-upload").removeClass("invisible");
 
-        fetch($("head").data("info") + "ups/enviar", {
-            method: "post",
-            body: dados
-        }).then((response) => {
-            $("#formUploadBtnEnviar")
-                    .html(`Enviar`)
-                    .removeAttr("disabled");
-            if (response.status == 200) {
-                return response.json();
-            } else {
-                Swal.fire({
-                    type: 'error',
-                    title: 'Atenção',
-                    text: getMensagemErro(response.status)
-                });
+            return config;
+        });
+
+        axios.interceptors.response.use((response) => {
+            $("#formUploadBtnEnviar").removeAttr("disabled");
+
+            $("#progress-upload").addClass("sinvisible");
+
+            return response;
+        });
+
+        axios.post($("head").data("info") + "ups/enviar", dados, {
+            onUploadProgress: (progressEvent) => {
+                if (progressEvent.lengthComputable) {
+                    var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+
+                    $("#progress-upload-bar").removeAttr("style");
+                    $("#progress-upload-bar").attr("style", `width:${percentCompleted}%`);
+                    $("#progress-upload-bar").attr("aria-valuenow", percentCompleted);
+
+                    if (percentCompleted >= 100) {
+                        $("#progress-upload-bar").html(`<i class="fas fa-circle-notch fa-spin"></i> Processando upload`);
+                    } else {
+                        $("#progress-upload-bar").html(`${percentCompleted}%`);
+                    }
+                }
             }
-        }).then((data) => {
-            if (data.resultado) {
+        }).then((response) => {
+            if (response.data.resultado) {
                 Swal.fire({
                     type: 'success',
                     title: 'Tudo certo',
-                    text: data.msg
+                    text: response.data.msg
                 }).then(() => {
                     location.href = $("head").data("info") + "dashboard";
                 });
             } else {
-                if (data.sessaoExpirada) {
+                if (response.data.sessaoExpirada) {
                     Swal.fire({
                         type: 'info',
                         title: 'Atenção',
@@ -103,11 +121,11 @@ $("#formUpload").validate({
                     Swal.fire({
                         type: 'warning',
                         title: 'Atenção',
-                        text: data.msg
+                        text: response.data.msg
                     });
                 }
             }
-        }).catch(() => {
+        }).catch((response) => {
             Swal.fire({
                 type: 'error',
                 title: 'Atenção',

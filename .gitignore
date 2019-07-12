@@ -16,7 +16,6 @@ admin/application/logs/*
 !application/logs/.htaccess
 !admin/application/logs/.htaccess
 
-public/app/img/arquivos
 public/app/img/arquivos/*
 !public/app/img/arquivos
 !public/app/img/arquivos/*

@@ -19,6 +19,42 @@ class Ups extends CI_Controller {
 
     public function index() {
         if ($this->sessao->isAutorizado($this->session, "fv_cliente")) {
+            $this->load->view("arquivos/home", $this->dados);
+        } else {
+            redirect();
+        }
+    }
+
+    public function get() {
+        if ($this->sessao->isAutorizado($this->session, "fv_cliente") && $this->input->post("ajax")) {
+            echo json_encode($this->post->getByIdCliente(base64_decode($this->session->fv_cliente_usuario)));
+        } else {
+            if ($this->input->post("ajax")) {
+                echo json_encode(["resultado" => FALSE, "sessaoExpirada" => TRUE]);
+            } else {
+                redirect("nao-autorizado");
+            }
+        }
+    }
+
+    public function getPost() {
+        if ($this->sessao->isAutorizado($this->session, "fv_cliente") && $this->input->post("ajax")) {
+            if (!empty($this->input->post("id")) && is_numeric($this->input->post("id"))) {
+                echo json_encode($this->post->getById($this->input->post("id")));
+            } else {
+                echo json_encode(["resultado" => FALSE, "msg" => "Falha na validação dos dados"]);
+            }
+        } else {
+            if ($this->input->post("ajax")) {
+                echo json_encode(["resultado" => FALSE, "sessaoExpirada" => TRUE]);
+            } else {
+                redirect("nao-autorizado");
+            }
+        }
+    }
+
+    public function up() {
+        if ($this->sessao->isAutorizado($this->session, "fv_cliente")) {
             $this->load->view("arquivos/upload", $this->dados);
         } else {
             redirect();
