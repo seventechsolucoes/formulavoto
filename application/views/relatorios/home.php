@@ -35,7 +35,7 @@ $this->load->view("static/template/head", [
                         <div class="col-12">
                             <div class="card rounded-0">
                                 <div class="card-header">
-                                    <span><a href="<?= base_url("dashboard") ?>" title="Dashboard" class="btn btn-outline-dark btn-sm rounded-circle"><i class="fas fa-arrow-left"></i></a> Relatórios</span>
+                                    <span><a href="<?= base_url("dashboard") ?>" title="Dashboard" class="btn"><i class="fas fa-arrow-left"></i></a> Relatórios</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="row mb-4">

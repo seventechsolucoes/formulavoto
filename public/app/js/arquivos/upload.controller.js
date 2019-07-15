@@ -1,6 +1,5 @@
 $().ready(() => {
     $("#data").mask("00/00/0000");
-    console.log();
 });
 
 $("#arquivo").change(function () {

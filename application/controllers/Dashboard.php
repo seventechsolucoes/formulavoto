@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-        $this->load->model("auth/usuario");
+        $this->load->model(["agenda"]);
 
         $this->dados["csrf"] = [
             "name" => $this->security->get_csrf_token_name(),
@@ -19,6 +19,7 @@ class Dashboard extends CI_Controller {
 
     public function index() {
         if ($this->sessao->isAutorizado($this->session, "fv_cliente")) {
+            $this->dados["notificacoesAgenda"] = $this->agenda->cobrarAgenda();
             $this->load->view("dashboard/home", $this->dados);
         } else {
             redirect();

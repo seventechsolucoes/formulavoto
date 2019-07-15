@@ -4,26 +4,24 @@ $this->load->view("static/template/head", [
     "scripts" => [ROOT . "/node_modules/jquery-countdown/dist/jquery.countdown.min.js"]
 ])
 ?>
-<header id="header">
-    <section id="section-header">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-6 col-md-4">
-                    <img src="<?= base_url("/public/app/img/sistema/logo-formula-voto-horizontal.png") ?>" class="img-fluid mx-auto d-block" alt="Logo Fórmula do Voto">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="<?= base_url("/public/app/img/sistema/logo-ave.png") ?>" class="img-fluid mx-auto d-block" alt="Logo AVE">
-                </div>
-            </div>
-        </div>
-    </section>
-</header>
+<?php $this->load->view("static/template/header-autenticado") ?>
 <main class="pt-4 mb-2 bg-main">
     <section id="section-main">
         <div class="container">
             <div class="row justify-content-around">
                 <?php $this->load->view("static/template/content-left") ?>
                 <div class="col-12 col-md-7 mt-2" style="border-left: orange solid 2px;border-right: orange solid 2px">
+                    <?php if (!empty($notificacoesAgenda)): ?>
+                        <div class="row">
+                            <?php foreach ($notificacoesAgenda as $notificacao) : ?>
+                                <div class="col-12">
+                                    <div class="alert <?= $notificacao["tipoNotificacao"] ?> alert-dismissible fade show" role="alert">
+                                        <?= $notificacao["icone"] . " " .$notificacao["msg"] ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="row">
                         <div class="col-12 col-md-4 col-sm-4 mb-4 d-flex">
                             <div class="card rounded-0">
@@ -32,7 +30,7 @@ $this->load->view("static/template/head", [
                                     <div class="card-text"><p class="text-center cor-cinza">Informe sua agenda para os próximos 7 dias</p></div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="<?= base_url("agenda") ?>" class="btn btn-primary btn-sm btn-block">Acessar</a>
+                                    <a href="<?= base_url("agendas") ?>" class="btn btn-primary btn-sm btn-block">Acessar</a>
                                 </div>
                             </div>
                         </div>
