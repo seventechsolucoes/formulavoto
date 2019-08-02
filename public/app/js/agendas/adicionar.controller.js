@@ -7,7 +7,8 @@ $().ready(() => {
         format: "dd/mm/yyyy",
         language: "pt-BR",
         toggleActive: true,
-        autoclose: true
+        autoclose: true,
+        currentDay:true
     });
 });
 
@@ -71,15 +72,9 @@ $("#formAdicionar").validate({
                     type: 'success',
                     title: 'Tudo certo',
                     text: response.data.msg,
-                    showCancelButton: true,
-                    confirmButtonText: 'Adicionar outro evento',
-                    cancelButtonText: 'Ok'
                 }).then((result) => {
-                    if (result.value) {
                         $("#formAdicionar").trigger("reset");
-                    } else {
-                        location.href = $("head").data("info") + "agendas";
-                    }
+                        renderizarCardsEventos(response.data.eventos);
                 });
             } else {
                 if (response.data.sessaoExpirada) {

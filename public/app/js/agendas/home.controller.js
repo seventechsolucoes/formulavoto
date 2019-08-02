@@ -1,24 +1,13 @@
 $().ready(() => {
-    $("#dataInicial,#dataFinal").mask("00/00/0000");
-    $("#dataInicial,#dataFinal").datepicker({
-        format: "dd/mm/yyyy",
-        language: "pt-BR",
-        toggleActive: true,
-        autoclose: true
-    });
     inicializar();
 });
 
 $("#formBuscar").validate({
     rules: {
         titulo: {minlength: 3},
-        dataInicial: {minlength: 10},
-        dataFinal: {minlength: 10}
     },
     messages: {
         titulo: {minlength: "Digite pelo menos 3 caracteres"},
-        dataInicial: {minlength: "Data incompleta"},
-        dataFinal: {minlength: "Data incompleta"}
     },
     errorClass: 'is-invalid',
     validClass: "is-valid",
@@ -34,16 +23,16 @@ $("#formBuscar").validate({
         dados.append("ajax", true);
 
         axios.interceptors.request.use((config) => {
-            $("#formBuscarBtnFiltrar")
-                    .html("Filtrando")
+            $("#formBuscarBtnBuscar")
+                    .html("Buscando")
                     .attr("disabled", "disabled");
 
             return config;
         });
 
         axios.interceptors.response.use((response) => {
-            $("#formBuscarBtnFiltrar")
-                    .html("Filtrar")
+            $("#formBuscarBtnBuscar")
+                    .html("Buscar")
                     .removeAttr("disabled");
 
             return response;

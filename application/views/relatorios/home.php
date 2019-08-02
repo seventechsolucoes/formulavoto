@@ -2,10 +2,7 @@
 $this->load->view("static/template/head", [
     "title" => "Relatórios | Fórmula do voto",
     "styles" => [ROOT . "/node_modules/chart.js/dist/Chart.min.css"],
-    "scripts" => [
-        ROOT . "/node_modules/chart.js/dist/Chart.min.js",
-        ROOT . "/node_modules/jquery-countdown/dist/jquery.countdown.min.js"
-    ]
+    "scripts" => [ROOT . "/node_modules/chart.js/dist/Chart.min.js"]
 ]);
 ?>
 <header id="header">

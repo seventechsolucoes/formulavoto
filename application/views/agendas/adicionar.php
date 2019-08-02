@@ -6,7 +6,6 @@ $this->load->view("static/template/head", [
         base_url("public/app/libs/clockpicker/dist/bootstrap-clockpicker.min.css")
     ],
     "scripts" => [
-        ROOT . "/node_modules/jquery-countdown/dist/jquery.countdown.min.js",
         base_url("public/app/libs/clockpicker/dist/bootstrap-clockpicker.min.js"),
         base_url("public/app/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"),
         base_url("public/app/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"),
@@ -39,13 +38,13 @@ $this->load->view("static/template/head", [
                                         </div>
                                         <div class="form-row">
                                             <div class="col-12 col-md-6 col-sm-6 form-group">
-                                                <label for="data">Hora</label>
-                                                <input type="text" id="hora" name="hora" class="form-control clockpicker" placeholder="00:00">
+                                                <label for="data">Data</label>
+                                                <input type="text" id="data" name="data" class="form-control" placeholder="00/00/0000">
                                                 <span class="invalid-feedback"></span>
                                             </div>
                                             <div class="col-12 col-md-6 col-sm-6 form-group">
-                                                <label for="data">Data</label>
-                                                <input type="text" id="data" name="data" class="form-control" placeholder="00/00/0000">
+                                                <label for="data">Hora</label>
+                                                <input type="text" id="hora" name="hora" class="form-control clockpicker" placeholder="00:00">
                                                 <span class="invalid-feedback"></span>
                                             </div>
                                         </div>

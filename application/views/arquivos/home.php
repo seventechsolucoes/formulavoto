@@ -16,7 +16,7 @@ $this->load->view("static/template/head", [
                         <div class="col-12">
                             <div class="card rounded-0">
                                 <div class="card-header">
-                                    <span><i class="fas fa-arrow-circle-o-left"></i> Upload</span>
+                                    <span><a href="<?= base_url("dashboard") ?>" title="Agendas" class="btn"><i class="fas fa-arrow-left"></i></a> Upload</span>
                                 </div>
                                 <div class="card-body">
                                     <form id="formBuscar">

@@ -69,6 +69,9 @@ body{
 #box-perfil-informacoes-nome{
     font-size: 1.2em;
 }
+#box-perfil-editar > hr{
+    border-color: white;
+}
 .icone-dashboard{
     max-height: 100px;
     max-width: 100px;

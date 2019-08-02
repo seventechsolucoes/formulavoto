@@ -26,7 +26,7 @@
                     <div class="card-title">Calendário<br>eleitoral</div>
                     <div class="card-text">
                         <p class="text-justify text-white">
-                            O prazo final ara filiações partidárias termina em 30 de julho de 2019.
+                            O prazo final para filiações partidárias termina em 30 de julho de 2019.
                             Até essa data todos os pré-candidatos devem estar filiados a um partido político.
                         </p>
                     </div>

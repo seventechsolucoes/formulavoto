@@ -6,7 +6,6 @@ $this->load->view("static/template/head", [
         base_url("public/app/libs/clockpicker/dist/bootstrap-clockpicker.min.css")
     ],
     "scripts" => [
-        ROOT . "/node_modules/jquery-countdown/dist/jquery.countdown.min.js",
         base_url("public/app/libs/clockpicker/dist/bootstrap-clockpicker.min.js"),
         base_url("public/app/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"),
         base_url("public/app/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"),

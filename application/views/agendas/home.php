@@ -1,13 +1,14 @@
 <?php
 $this->load->view("static/template/head", [
-    "title" => "Agendas | Fórmula do voto",
+    "title" => "Agenda | Fórmula do voto",
     "styles" => [
         base_url("public/app/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css"),
+        base_url("public/app/libs/clockpicker/dist/bootstrap-clockpicker.min.css")
     ],
     "scripts" => [
-        ROOT . "/node_modules/jquery-countdown/dist/jquery.countdown.min.js",
+        base_url("public/app/libs/clockpicker/dist/bootstrap-clockpicker.min.js"),
         base_url("public/app/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"),
-        base_url("public/app/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js")
+        base_url("public/app/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"),
     ]
 ]);
 ?>
@@ -25,55 +26,59 @@ $this->load->view("static/template/head", [
                         <div class="col-12">
                             <div class="card rounded-0">
                                 <div class="card-header">
-                                    <span><a href="<?= base_url("dashboard") ?>" title="Dashboard" class="btn"><i class="fas fa-arrow-left"></i></a> Agendas</span>
+                                    <span><a href="<?= base_url("dashboard") ?>" title="Dashboard" class="btn"><i class="fas fa-arrow-left"></i></a> Agenda</span>
                                 </div>
                                 <div class="card-body">
-                                    <form id="formBuscar">
+                                    <form id="formAdicionar">
                                         <input type="hidden" name="<?= $csrf["name"] ?>" value="<?= $csrf["hash"] ?>">
-                                        <div class="row">
+                                        <input type="hidden" id="cliente" name="cliente" value="<?= base64_decode($this->session->fv_cliente_usuario) ?>">
+                                        <div class="form-row">
                                             <div class="col-12 form-group">
                                                 <label for="titulo">Título</label>
-                                                <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Título do evento">
+                                                <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Informe o título do evento">
                                                 <span class="invalid-feedback"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 col-md-4 form-group">
-                                                <label for="dataInicial">Data inicial</label>
-                                                <input type="text" id="dataInicial" name="dataInicial" class="form-control" placeholder="Data inicial">
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                            <div class="col-12 col-md-4 form-group">
-                                                <label for="dataFinal">Data final</label>
-                                                <input type="text" id="dataFinal" name="dataFinal" class="form-control" placeholder="Data final">
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                            <div class="col-12 col-md-4 form-group">
-                                                <label for="status">Status</label>
-                                                <select id="status" name="status" class="form-control">
-                                                    <option value="todos">Todos</option>
-                                                    <option value="aguardando">Aguardando</option>
-                                                    <option value="concluido">Concluído</option>
-                                                    <option value="atrasado">Atrasado</option>
-                                                    <option value="cancelado">Cancelado</option>
-                                                </select>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row justify-content-end">
-                                            <div class="col-12 col-md-3 col-sm-4 form-group">
-                                                <button type="submit" class="btn btn-primary btn-sm btn-block" title="Filtrar" id="formBuscarBtnFiltrar">Filtrar</button>
-                                            </div>
-                                            <div class="col-12 col-md-3 col-sm-4 form-group">
-                                                <a href="<?= base_url("agenda/adicionar") ?>" class="btn btn-success btn-sm btn-block" title="Adicionar">Adicionar</a>
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12">
-                                                <hr>
+                                            <div class="col-12 col-md-6 col-sm-6 form-group">
+                                                <label for="data">Hora</label>
+                                                <input type="text" id="hora" name="hora" class="form-control clockpicker" placeholder="00:00">
+                                                <span class="invalid-feedback"></span>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-sm-6 form-group">
+                                                <label for="data">Data</label>
+                                                <input type="text" id="data" name="data" class="form-control" placeholder="00/00/0000">
+                                                <span class="invalid-feedback"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-row justify-content-end mb-4">
+                                            <div class="col-12 col-md-4 col-sm-5 mb-3">
+                                                <button type="submit" class="btn btn-success btn-block" id="formAdicionarBtnAdicionar">Adicionar</button>
                                             </div>
                                         </div>
                                     </form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <form id="formBuscar">
+                                        <input type="hidden" name="<?= $csrf["name"] ?>" value="<?= $csrf["hash"] ?>">
+                                        <div class="row">
+                                            <div class="col-12 form-group input-group">
+                                                <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Título do evento">
+                                                <div class="input-group-prepend">
+                                                    <button type="submit" class="btn btn-primary" type="button" id="formBuscarBtnBuscar">Buscar</button>
+                                                </div>
+                                                <span class="invalid-feedback"></span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                    </div>
                                     <div class="row" id="cards-eventos">
                                     </div>
                                 </div>
@@ -87,6 +92,6 @@ $this->load->view("static/template/head", [
     </section>
 </main>
 <script src="<?= base_url("node_modules/moment/moment.js") ?>"></script>
-<script src="<?= base_url("public/app/js/countdown/controller.js") ?>"></script>
 <script src="<?= base_url("public/app/js/agendas/home.controller.js") ?>"></script>
+<script src="<?= base_url("public/app/js/agendas/adicionar.controller.js") ?>"></script>
 <?php $this->load->view("static/template/end-page") ?>

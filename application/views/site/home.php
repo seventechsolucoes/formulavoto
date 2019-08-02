@@ -65,7 +65,7 @@
                     </div>
                     <div class="row bg-cinza justify-content-center p-2">
                         <div class="col-10">
-                            <a href="#" class="btn btn-primary btn-block">Download</a>
+                            <button type="button" data-title-modal="Download Ebook" data-conteudo="ebook" class="btn btn-primary btn-modal btn-block">Download</button>
                         </div>
                     </div>
                 </div>
@@ -76,33 +76,28 @@
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center   mb-2">
-                        <div class="col-12 col-md-4">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<?= base_url("public/app/videos/site/formula-voto-video-01.mp4") ?>" allowfullscreen></iframe>
-                            </div>
+                        <div class="col-12">
+                            <video controls style="width:100%">
+                                <source src="<?= base_url("public/app/videos/site/{$videos[date("w", strtotime(date("Y-m-d")))][0]}") ?>" type="video/mp4">
+                                Seu navegador não tem suporte para vídeo
+                            </video> 
                         </div>
-                        <div class="col-12 col-md-4">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<?= base_url("public/app/videos/site/formula-voto-video-02.mp4") ?>" allowfullscreen></iframe>
-                            </div>
-                        </div>
-<!--                        <div class="col-12 col-md-4">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<?= base_url("public/app/videos/site/formula-voto-video-01.mp4") ?>" allowfullscreen></iframe>
-                            </div>
-                        </div>-->
+                        <!--                        <div class="col-12 col-md-6">
+                                                    <video controls style="width:100%">
+                                                        <source src="<?= base_url("public/app/videos/site/formula-voto-video-02.mp4") ?>" type="video/mp4">
+                                                        Seu navegador não tem suporte para vídeo
+                                                    </video> 
+                                                </div>-->
                     </div>
-                    <div class="row mt-4 align-items-center bg-cinza">
-                        <div class="col-12 col-md-8">
-                            <img src="http://placehold.it/620x350" class="img-fluid mx-auto">
-                        </div>
-                        <div class="col-12 col-md-4">
+                    <div class="row mt-4 align-items-center bg-cinza p-3">
+                        <div class="col-12 mb-3 text-center">
                             <span id="titulo-video-destaque">Lorem ipsum dolor</span><br>
-                            <span>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Nunc sapien quam, ultrices in tincidunt a, ultricies in massa. 
-                                Quisque vulputate eleifend tempor. 
-                            </span>
+                        </div>
+                        <div class="col-12">
+                            <video controls style="width:100%">
+                                <source src="<?= base_url("public/app/videos/site/{$videos[date("w", strtotime(date("Y-m-d")))][1]}") ?>" type="video/mp4">
+                                Seu navegador não tem suporte para vídeo
+                            </video> 
                         </div>
                     </div>
                     <div class="row mt-4 mb-4">
@@ -154,7 +149,7 @@
                     </div>
                     <div class="row bg-cinza justify-content-center p-2 mb-2">
                         <div class="col-10">
-                            <a href="#" class="btn btn-primary btn-block">Download</a>
+                            <button type="button" data-title-modal="Download Audiobook" data-conteudo="audiobook" class="btn btn-primary btn-modal btn-block">Download</button>
                         </div>
                     </div>
                     <div class="row p-2">
@@ -195,5 +190,7 @@
         </div>
     </section>
 </main>
+<?php $this->load->view("static/modals/site/form-download") ?>
 <script src="<?= base_url("public/app/js/site/login.controller.js") ?>"></script>
+<script src="<?= base_url("public/app/js/site/download.controller.js") ?>"></script>
 <?php $this->load->view("static/template/end-page") ?>

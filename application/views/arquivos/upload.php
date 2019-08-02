@@ -1,8 +1,5 @@
 <?php
-$this->load->view("static/template/head", [
-    "title" => "Upload | Fórmula do voto",
-    "scripts" => [ROOT . "/node_modules/jquery-countdown/dist/jquery.countdown.min.js"]
-]);
+$this->load->view("static/template/head", ["title" => "Upload | Fórmula do voto"]);
 ?>
 <?php $this->load->view("static/template/header-autenticado"); ?>
 <main class="pt-4 mb-2 bg-main">
@@ -15,7 +12,7 @@ $this->load->view("static/template/head", [
                         <div class="col-12">
                             <div class="card rounded-0">
                                 <div class="card-header">
-                                    <span>Upload de Vídeos e Fotos</span>
+                                    <span><a href="<?= base_url("uploads") ?>" title="Agendas" class="btn"><i class="fas fa-arrow-left"></i></a> Upload de Vídeos e Fotos</span>
                                 </div>
                                 <div class="card-body">
                                     <form id="formUpload">
@@ -42,28 +39,28 @@ $this->load->view("static/template/head", [
                                         </div>
                                         <div class="form-row">
                                             <div class="col-12 form-group">
-                                                <label for="publicoPresente">Público presente</label>
-                                                <textarea id="publicoPresente" name="publicoPresente" class="form-control" rows="4" placeholder="Informe o público presente no evento"></textarea>
+                                                <label for="publicoPresente">Como foi <i class="far fa-question-circle" data-toggle="tooltip" data-placement="right" title="Escreva em linhas gerais como foi o evento, onde foi, qual a importância disso e - não se esqueça - de nominar as pessoas ou descrever a situação que aparece no vídeo/foto."></i></label>
+                                                <textarea id="publicoPresente" name="publicoPresente" class="form-control" rows="4" placeholder="Descreva rapidamente o que aconteceu no evento"></textarea>
                                                 <span class="invalid-feedback"></span>
                                             </div>
                                         </div>
-                                        <div class="form-row">
+<!--                                        <div class="form-row">
                                             <div class="col-12 form-group">
                                                 <label for="assunto">Assunto</label>
                                                 <input type="text" id="assunto" name="assunto" class="form-control" placeholder="Informe o assunto do evento">
                                                 <span class="invalid-feedback"></span>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-row">
                                             <div class="col-12 form-group">
-                                                <label for="autoridades">Autoridades</label>
-                                                <textarea id="autoridades" name="autoridades" class="form-control" rows="4" placeholder="Informe quais autoridades estavam presentes"></textarea>
+                                                <label for="autoridades">Público presente <i class="far fa-question-circle" data-toggle="tooltip" data-placement="right" title="Quantas pessoas estavam presentes? Tinha alguém famoso ou de destaque na comunidade? Alguma autoridade apareceu?"></i></label>
+                                                <textarea id="autoridades" name="autoridades" class="form-control" rows="4" placeholder="Informe número de presentes e nomine autoridades e famosos"></textarea>
                                                 <span class="invalid-feedback"></span>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-12 form-group">
-                                                <label for="observacoes">Observações</label>
+                                                <label for="observacoes">Suas impressões <i class="far fa-question-circle" data-toggle="tooltip" data-placement="right" title="O que você achou do evento? Foi bom? Ruim? Teve poucas pessoas? Muitas? Alguém deveria ir e não foi? Alguém foi sem ser chamado? O que você achou da ausência ou da presença?"></i></label>
                                                 <textarea id="observacoes" name="observacoes" class="form-control" rows="4" placeholder="Observações sobre o evento ou sobre a postagem"></textarea>
                                                 <span class="invalid-feedback"></span>
                                             </div>

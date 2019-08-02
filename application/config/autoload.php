@@ -8,4 +8,4 @@ $autoload['drivers'] = [];
 $autoload['helper'] = ["url","utils"];
 $autoload['config'] = [];
 $autoload['language'] = [];
-$autoload['model'] = [];
+$autoload['model'] = ["utils"];

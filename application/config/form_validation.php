@@ -101,5 +101,80 @@ $config = [
             'rules' => "trim|required"
         ]
     ],
-        //AGENDAS
+    //AGENDAS
+    //PERFIL
+    "perfil/atualizarDadosPessoais" => [
+        [
+            'field' => "nome",
+            'label' => "nome",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "email",
+            'label' => "email",
+            'rules' => "trim|required|valid_email"
+        ],
+        [
+            'field' => "cidade",
+            'label' => "cidade",
+            'rules' => "trim|required|integer"
+        ]
+    ],
+    "perfil/atualizarDadosAcesso" => [
+        [
+            'field' => "usuario",
+            'label' => "usuario",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "senha",
+            'label' => "senha",
+            'rules' => "trim|required"
+        ]
+    ],
+    //PERFIL
+    //DOWNLOAD EBOOK/AUDIOBOOK
+    "site/download" => [
+        [
+            'field' => "conteudo",
+            'label' => "conteudo",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "nome",
+            'label' => "nome",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "email",
+            'label' => "email",
+            'rules' => "trim|required|valid_email"
+        ],
+        [
+            'field' => "telefone",
+            'label' => "telefone",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "municipio",
+            'label' => "municipio",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "estado",
+            'label' => "estado",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "cargoPretendido",
+            'label' => "cargoPretendido",
+            'rules' => "trim|required"
+        ],
+        [
+            'field' => "conteudo",
+            'label' => "conteudo",
+            'rules' => "trim|required"
+        ]
+    ]
+        //DOWNLOAD EBOOK/AUDIOBOOK
 ];

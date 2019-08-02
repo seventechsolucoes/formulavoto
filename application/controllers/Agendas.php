@@ -104,8 +104,8 @@ class Agendas extends CI_Controller {
 
     public function filtrar() {
         if ($this->sessao->isAutorizado($this->session, "fv_cliente") && $this->input->post("ajax")) {
-            if (!empty($this->input->post("status"))) {
-                echo json_encode($this->agenda->filtrar($this->input->post()));
+            if (!empty($this->input->post("titulo"))) {
+                echo json_encode($this->agenda->filtrar($this->input->post("titulo")));
             } else {
                 echo json_encode(["resultado" => FALSE, "msg" => "Falha na validação dos dados"]);
             }

@@ -78,7 +78,11 @@ class Agenda extends CI_Model {
         $this->db->trans_complete();
 
         if ($this->db->trans_status()) {
-            return ["resultado" => TRUE, "msg" => "Evento adicionado"];
+            return [
+                "resultado" => TRUE,
+                "msg" => "Evento adicionado",
+                "eventos"=>$this->getAll(FALSE)
+                ];
         } else {
             return ["resultado" => FALSE, "msg" => "Não foi possível adicionar o evento"];
         }
@@ -98,32 +102,14 @@ class Agenda extends CI_Model {
         }
     }
 
-    public function filtrar($dados) {
-        $this->db
-                ->order_by("data", "DESC")
-                ->order_by("hora", "ASC")
-                ->group_by("id")
-                ->where("idCliente", base64_decode($this->session->fv_cliente_usuario));
-        if ($dados["status"] != "todos") {
-            $this->db->where("status", $dados["status"]);
-        }
-
-        if (!empty($dados["titulo"])) {
-            $this->db->like("titulo", $dados["titulo"]);
-        }
-
-        if (!empty($dados["dataInicial"]) && !empty($dados["dataFinal"])) {
-            $this->db->where("data BETWEEN '" . date("Y-m-d", strtotime(str_replace("/", "-", $dados["dataInicial"]))) . "' AND '" . date("Y-m-d", strtotime(str_replace("/", "-", $dados["dataFinal"]))) . "'");
-        } else {
-            if (!empty($dados["dataInicial"])) {
-                $this->db->where("data BETWEEN '" . date("Y-m-d", strtotime(str_replace("/", "-", $dados["dataInicial"]))) . "' AND '" . date("Y-m-d", strtotime(str_replace("/", "-", $dados["dataInicial"]))) . "'");
-            }
-            if (!empty($dados["dataFinal"])) {
-                $this->db->where("data BETWEEN '" . date("Y-m-d", strtotime(str_replace("/", "-", $dados["dataFinal"]))) . "' AND '" . date("Y-m-d", strtotime(str_replace("/", "-", $dados["dataFinal"]))) . "'");
-            }
-        }
-
-        $response = $this->db->get("clientes_eventos_lembretes")->result();
+    public function filtrar($titulo) {
+        $response = $this->db
+                        ->order_by("data", "DESC")
+                        ->order_by("hora", "ASC")
+                        ->group_by("id")
+                        ->where("idCliente", base64_decode($this->session->fv_cliente_usuario))
+                        ->like("titulo", $titulo)
+                        ->get("clientes_eventos_lembretes")->result();
 
         if (!empty($response)) {
             return ["resultado" => TRUE, "eventos" => $response];
